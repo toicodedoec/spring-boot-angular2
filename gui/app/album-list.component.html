@@ -1,0 +1,85 @@
+<div class="container" *ngIf="artists">
+  <div>
+    <img src="{{artists[0].images[2].url}}" />
+    <h2 style="display: inline-block;">Albums by {{artists[0].name}}</h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Album Type</th>
+        <th>Type</th>
+        <th>Image</th>
+        <th>External Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let album of albums">
+        <td><a (click)="onSelect(album)" style="cursor: pointer;">{{album.id}}</a></td>
+        <td>
+          <p>{{album.name}}</p>
+        </td>
+        <td>
+          <p>{{album.type}}</p>
+        </td>
+        <td>
+          <p>{{album.album_type}}</p>
+        </td>
+        <td>
+          <p><img class="img-responsive" [src]="album.images[2].url"></p>
+        </td>
+        <td>
+          <p>{{album.external_urls.spotify}}</p>
+        </td>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="messageFromService">{{messageFromService}}</div>
+<div class="container-fluid">
+  <div class="panel-group" id="accordion">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+        Collapsible Group 1</a>
+        </h4>
+      </div>
+      <div id="collapse1" class="panel-collapse collapse in">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+        Collapsible Group 2</a>
+        </h4>
+      </div>
+      <div id="collapse2" class="panel-collapse collapse">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h4 class="panel-title">
+          <span class="glyphicon glyphicon-envelope"></span>
+          <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+        Collapsible Group 3</a>
+        </h4>
+      </div>
+      <div id="collapse3" class="panel-collapse collapse">
+        <div class="panel-body">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
+          aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</div>
+      </div>
+    </div>
+    <div class="panel-heading panel-heading-link">
+      <h4 class="panel-title">
+        <span class="img-content"></span>
+        <a style="text-decoration: underline;">Test</a>
+      </h4>
+    </div>
+  </div>
+</div>
