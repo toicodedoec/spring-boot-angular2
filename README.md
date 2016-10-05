@@ -1,6 +1,10 @@
 # spring-boot-angular2
 Example of integrating spring-boot (as backend) with angular2 (as frontend).
 
+**_TODO_**
+1. Plug spring security
+2. Plug db library
+
 # Structure
 
 1. service: spring-boot project for back-end REST services
