@@ -21,13 +21,13 @@ curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" loca
 
 **Deploy frontend**
 
-_gui
+_gui_
 ```
 cd gui
 npm install
 npm start
 ```
-_ui
+_ui_
 ```
 cd ui
 mvn clean install spring-boot:run -DskipTests
