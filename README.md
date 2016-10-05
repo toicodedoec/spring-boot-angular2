@@ -32,6 +32,7 @@ _ui_
 cd ui
 mvn clean install spring-boot:run -DskipTests
 ```
+- Authentication: user/hackathon
 - If you want to run from the JAR file:
 ```
 cd ui
