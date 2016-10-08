@@ -21,7 +21,7 @@ mvn clean install spring-boot:run -Dserver.port=9000 -DskipTests
 ```
 _Test calling backend method_
 ```
-curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" localhost:9000
+curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" localhost:9000/home
 ```
 
 **Deploy frontend**
