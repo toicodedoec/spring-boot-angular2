@@ -4,7 +4,14 @@ Example of integrating spring-boot (as backend) with angular2 (as frontend).
 **_TODO_**
 
 1. Plug spring security
-2. Plug db library
+2. Plug db library: done
+
+# Technical stack
+
+1. spring-boot
+2. angular2
+3. hibernate
+4. mysql
 
 # Structure
 
