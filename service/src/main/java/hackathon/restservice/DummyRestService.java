@@ -1,6 +1,5 @@
 package hackathon.restservice;
 
-import java.security.Principal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -19,20 +18,15 @@ import hackathon.repository.IDummyRepository;
 @RestController
 @Transactional
 public class DummyRestService {
-    
+
     @Autowired
     IDummyRepository repository;
 
     @PersistenceContext
     private EntityManager em;
 
-    @RequestMapping("/user")
-    public Principal user(Principal user) {
-        return user;
-    }
-
     @RequestMapping("/home")
-    @CrossOrigin(origins = "*", maxAge = 3600)
+    @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = { "x-auth-token", "x-requested-with" })
     public Map<String, Object> home() {
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("id", UUID.randomUUID().toString());
