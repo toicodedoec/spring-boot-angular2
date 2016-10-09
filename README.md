@@ -10,7 +10,7 @@ Example of integrating spring-boot (as backend) with angular2 (as frontend).
 
 1. spring-boot
 2. angular2
-3. hibernate
+3. hibernate (as JPA implementation)
 4. mysql
 
 # Structure
