@@ -12,7 +12,6 @@
 hs_err_pid*
 
 # front-end
-*.js
 *.map
 dist/
 node_modules/
