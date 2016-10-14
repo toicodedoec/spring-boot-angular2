@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import hackathon.entity.User;
 
 @Repository
-public interface IDummyRepository extends CrudRepository<User, Long> {
+public interface IUserRepository extends CrudRepository<User, Long> {
 }

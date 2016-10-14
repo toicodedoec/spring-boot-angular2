@@ -12,15 +12,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
-import hackathon.repository.IDummyRepository;
+import hackathon.entity.User;
+import hackathon.repository.IUserRepository;
 
 @RestController
 @Transactional
-public class DummyRestService {
+public class ApplicationController {
 
     @Autowired
-    IDummyRepository repository;
+    IUserRepository repository;
 
     @PersistenceContext
     private EntityManager em;
@@ -30,7 +30,9 @@ public class DummyRestService {
     public Map<String, Object> home() {
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("id", UUID.randomUUID().toString());
-        model.put("content", "Hello World");
+        Iterable<User> users = repository.findAll();
+        System.out.println(users);
+        model.put("content", "Hello World" + users);
         return model;
     }
 }

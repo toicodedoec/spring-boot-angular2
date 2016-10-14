@@ -8,7 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 
 @SpringBootApplication
-public class ApplicationLauncher extends WebSecurityConfigurerAdapter {
+public class ApplicationSecurity extends WebSecurityConfigurerAdapter {
 
     @Bean
     HeaderHttpSessionStrategy sessionStrategy() {
@@ -16,10 +16,10 @@ public class ApplicationLauncher extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().authorizeRequests().anyRequest().authenticated();
+        http.cors().and().authorizeRequests().anyRequest().permitAll();
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(ApplicationLauncher.class, args);
+        SpringApplication.run(ApplicationSecurity.class, args);
     }
 }
