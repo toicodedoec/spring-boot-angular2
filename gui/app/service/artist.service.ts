@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/Rx';
 
-import { Album } from './album';
+import { Album } from '../model/album';
 import { AbstractService } from './iservice';
-import constants = require('./constants');
+import constants = require('../constants');
 
 @Injectable()
 export class ArtistService extends AbstractService<Album> {

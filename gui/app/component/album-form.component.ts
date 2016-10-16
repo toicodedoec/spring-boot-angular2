@@ -2,12 +2,12 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import 'rxjs/Rx';
 
-import { Album } from './album';
-import { AlbumService } from './album.service';
+import { Album } from '../model/album';
+import { AlbumService } from '../service/album.service';
 
 @Component({
   selector: 'album-form',
-  templateUrl: 'app/album-form.component.html'
+  templateUrl: 'app/view/album-form.component.html'
   
 })
 export class AlbumFormComponent implements OnInit {

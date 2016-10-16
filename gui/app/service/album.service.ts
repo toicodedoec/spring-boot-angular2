@@ -4,9 +4,9 @@ import { Observable } from 'rxjs/Rx';
 
 import 'rxjs/Rx';
 
-import { Album } from './album';
+import { Album } from '../model/album';
 import { AbstractService } from './iservice';
-import constants = require('./constants');
+import constants = require('../constants');
 
 @Injectable()
 export class AlbumService extends AbstractService<Album> {
@@ -36,9 +36,9 @@ export class AlbumService extends AbstractService<Album> {
     ).catch(this.handleError);
   }
 
-  callToExternalService(): Observable<string> {
-    return this.http.get("http://localhost:9000/")
-      .map((r: Response) => r.json() as string)
+  callToExternalService(): Observable<Album[]> {
+    return this.http.get("http://localhost:8080/home")
+      .map((r: Response) => r.json() as Album[])
       .catch(this.handleError);
   }
 }
