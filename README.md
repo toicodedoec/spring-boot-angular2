@@ -12,6 +12,7 @@ Example of integrating spring-boot (as backend) with angular2 (as frontend).
 2. angular2
 3. hibernate (as JPA implementation)
 4. mysql
+5. using ng2-completer (https://github.com/oferh/ng2-completer) for auto-complete-box
 
 # Structure
 
