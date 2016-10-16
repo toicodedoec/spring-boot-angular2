@@ -16,7 +16,7 @@ public class ApplicationLauncher extends WebSecurityConfigurerAdapter {
     }
 
     protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().authorizeRequests().anyRequest().authenticated();
+        http.cors().and().authorizeRequests().anyRequest().permitAll();
     }
 
     public static void main(String[] args) {

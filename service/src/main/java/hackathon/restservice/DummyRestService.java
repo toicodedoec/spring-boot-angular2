@@ -1,6 +1,8 @@
 package hackathon.restservice;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -27,10 +29,32 @@ public class DummyRestService {
 
     @RequestMapping("/home")
     @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = { "x-auth-token", "x-requested-with" })
-    public Map<String, Object> home() {
+    public List<Map<String, Object>> home() {
+        List<Map<String, Object>> lst = new ArrayList<Map<String, Object>>();
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("id", UUID.randomUUID().toString());
-        model.put("content", "Hello World");
-        return model;
+        model.put("name", "apple");
+        lst.add(model);
+        model = new HashMap<String, Object>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("name", "computer");
+        lst.add(model);
+        model = new HashMap<String, Object>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("name", "laptop");
+        lst.add(model);
+        model = new HashMap<String, Object>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("name", "girlfriend");
+        lst.add(model);
+        model = new HashMap<String, Object>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("name", "wife");
+        lst.add(model);
+        model = new HashMap<String, Object>();
+        model.put("id", UUID.randomUUID().toString());
+        model.put("name", "american");
+        lst.add(model);
+        return lst;
     }
 }
