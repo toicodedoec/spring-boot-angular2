@@ -1,0 +1,45 @@
+<div class="container" *ngIf="artists">
+  <div>
+    <img src="{{artists[0].images[2].url}}" />
+    <h2 style="display: inline-block;">Albums by {{artists[0].name}}</h2>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Album Type</th>
+        <th>Type</th>
+        <th>Image</th>
+        <th>External Link</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let album of albums">
+        <td><a (click)="onSelect(album)" style="cursor: pointer;">{{album.id}}</a></td>
+        <td>
+          <p>{{album.name}}</p>
+        </td>
+        <td>
+          <p>{{album.type}}</p>
+        </td>
+        <td>
+          <p>{{album.album_type}}</p>
+        </td>
+        <td>
+          <p><img class="img-responsive" [src]="album.images[2].url"></p>
+        </td>
+        <td>
+          <p>{{album.external_urls.spotify}}</p>
+        </td>
+    </tbody>
+  </table>
+</div>
+<div *ngIf="messageFromService">{{messageFromService}}</div>
+<div class="container-fluid">
+  <h1>Search color</h1>
+  <ng2-completer [(ngModel)]="searchStr" [dataService]="dataService" [minSearchLength]="0" (selected)="onQuoteSelected($event)"></ng2-completer>
+  <div *ngIf="selectedAlbum">
+    {{selectedAlbum.id}}/{{selectedAlbum.name}}
+  </div>
+</div>

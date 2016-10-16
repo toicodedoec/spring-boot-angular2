@@ -4,16 +4,17 @@ import { FormsModule }   from '@angular/forms';
 import { HttpModule }    from '@angular/http';
 
 import { AppComponent }       from './app.component';
-import { AlbumFormComponent}  from './album-form.component';
-import { AlbumListComponent}  from './album-list.component';
-import { AboutComponent }     from './about-component';
-import { AlbumService }       from './album.service';
-import { ArtistService }      from './artist.service';
+import { AlbumFormComponent}  from './component/album-form.component';
+import { AlbumListComponent}  from './component/album-list.component';
+import { AboutComponent }     from './component/about-component';
+import { AlbumService }       from './service/album.service';
+import { ArtistService }      from './service/artist.service';
 
 import { routing }            from './app.routing';
+import { Ng2CompleterModule } from 'ng2-completer';
 
 @NgModule({
-  imports: [BrowserModule, FormsModule, HttpModule, routing],
+  imports: [BrowserModule, FormsModule, HttpModule, routing, Ng2CompleterModule],
   declarations: [AppComponent,
     AlbumFormComponent,
     AlbumListComponent,

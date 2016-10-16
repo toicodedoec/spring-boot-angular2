@@ -1,9 +1,9 @@
 import { ModuleWithProviders }  from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { AlbumFormComponent} from './album-form.component';
-import { AlbumListComponent} from './album-list.component';
-import { AboutComponent }    from './about-component';
+import { AlbumFormComponent} from './component/album-form.component';
+import { AlbumListComponent} from './component/album-list.component';
+import { AboutComponent }    from './component/about-component';
 
 const appRoutes: Routes = [
   {
