@@ -33,16 +33,16 @@ _Test calling backend method_
 curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" localhost:9000/home
 ```
 
-_To deploy in Tomcat
+_To deploy in a standalone Tomcat server_
 
-1. Edit pom.xml & ApplicationLauncher as https://github.com/doannx/spring-boot-angular2/commit/2c67e0e579763c6a665b1a4823d4d8ac2379d01e
-2. Run these commands
+- Edit pom.xml & ApplicationLauncher as https://github.com/doannx/spring-boot-angular2/commit/2c67e0e579763c6a665b1a4823d4d8ac2379d01e
+- Run these commands
 ```
 mvn package
 cp target/service-1.0.0.war ~/Downloads/apache-tomcat-9.0.0.M10/webapps (copy war file to webapps folder)
 sh startup.sh (start Tomcat server)
 ```
-3. Access to service at http://localhost:8080/service%2D1%2E0%2E0/home
+- Access to service at http://localhost:8080/service%2D1%2E0%2E0/home
 
 **Deploy frontend**
 
