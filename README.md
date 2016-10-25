@@ -13,7 +13,7 @@ Example of integrating spring-boot (as backend) with angular2 (as frontend).
 3. hibernate (as JPA implementation)
 4. mysql
 5. using ng2-completer (https://github.com/oferh/ng2-completer) for auto-complete-box
-6. package the service as war to deploy in standalone Tomcat server
+6. create profiles in pom to package the service as war to deploy in standalone Tomcat server or as jar to run in embedded server
 
 # Structure
 
@@ -44,6 +44,15 @@ sh startup.sh (start Tomcat server)
 ```
 - Access to service at http://localhost:8080/service%2D1%2E0%2E0/home
 
+_Deploy using POM profile_
+- Run in dev mode (package as jar file)
+```
+mvn clean install [-P dev] -DskipTests spring-boot:run
+```
+- Run in release mode (package as war file)
+```
+mvn package -P release -DskipTests
+```
 **Deploy frontend**
 
 _gui_
