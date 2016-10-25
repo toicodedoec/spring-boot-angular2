@@ -5,7 +5,7 @@
 
 	<groupId>hackathon</groupId>
 	<version>1.0.0</version>
-	<packaging>war</packaging>
+	<packaging>${project.packaging}</packaging>
 
 	<name>resource</name>
 	<description>Demo project for Spring Boot</description>
@@ -21,7 +21,6 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-		<tomcat.version>9.0.0.M10</tomcat.version>
 	</properties>
 
 	<dependencies>
@@ -30,12 +29,6 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<scope>provided</scope>
-		</dependency>
-		
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -51,29 +44,17 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 		</dependency>
-		
-		<!-- <dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-core</artifactId>
-			<version>3.6.8</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-apt</artifactId>
-			<version>3.6.8</version>
-		</dependency>
-		
-		<dependency>
-			<groupId>com.mysema.querydsl</groupId>
-			<artifactId>querydsl-jpa</artifactId>
-			<version>3.6.8</version>
-		</dependency> -->
+
+		<!-- <dependency> <groupId>com.mysema.querydsl</groupId> <artifactId>querydsl-core</artifactId> 
+			<version>3.6.8</version> </dependency> <dependency> <groupId>com.mysema.querydsl</groupId> 
+			<artifactId>querydsl-apt</artifactId> <version>3.6.8</version> </dependency> 
+			<dependency> <groupId>com.mysema.querydsl</groupId> <artifactId>querydsl-jpa</artifactId> 
+			<version>3.6.8</version> </dependency> -->
 
 		<!-- security -->
 		<dependency>
@@ -86,7 +67,7 @@
 			<groupId>org.springframework.session</groupId>
 			<artifactId>spring-session-jdbc</artifactId>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-jdbc</artifactId>
@@ -96,37 +77,56 @@
 
 	<build>
 		<plugins>
-			<!-- <plugin>
-		        <groupId>com.mysema.maven</groupId>
-		        <artifactId>apt-maven-plugin</artifactId>
-		        <version>1.1.3</version>
-		        <executions>
-		          <execution>
-		            <goals>
-		              <goal>process</goal>
-		            </goals>
-		            <configuration>
-		              <outputDirectory>target/generated-sources/java</outputDirectory>
-		              <processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor>
-		            </configuration>
-		          </execution>
-		        </executions>
-		        <dependencies>
-		          <dependency>
-		            <groupId>com.querydsl</groupId>
-		            <artifactId>querydsl-apt</artifactId>
-		            <version>${querydsl.version}</version>
-		          </dependency>
-		        </dependencies>
-	      	</plugin> -->
-      
+			<!-- <plugin> <groupId>com.mysema.maven</groupId> <artifactId>apt-maven-plugin</artifactId> 
+				<version>1.1.3</version> <executions> <execution> <goals> <goal>process</goal> 
+				</goals> <configuration> <outputDirectory>target/generated-sources/java</outputDirectory> 
+				<processor>com.querydsl.apt.jpa.JPAAnnotationProcessor</processor> </configuration> 
+				</execution> </executions> <dependencies> <dependency> <groupId>com.querydsl</groupId> 
+				<artifactId>querydsl-apt</artifactId> <version>${querydsl.version}</version> 
+				</dependency> </dependencies> </plugin> -->
+
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
- 		</plugins>
+		</plugins>
 	</build>
 
-
 	<artifactId>service</artifactId>
+
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<project.packaging>jar</project.packaging>
+			</properties>
+		</profile>
+		<profile>
+			<id>release</id>
+			<properties>
+				<project.packaging>war</project.packaging>
+			</properties>
+			<dependencies>
+				<dependency>
+					<groupId>org.springframework.boot</groupId>
+					<artifactId>spring-boot-starter-web</artifactId>
+					<exclusions>
+						<exclusion>
+							<artifactId>spring-boot-starter-tomcat</artifactId>
+							<groupId>org.springframework.boot</groupId>
+						</exclusion>
+					</exclusions>
+				</dependency>
+				<dependency>
+					<groupId>javax.servlet</groupId>
+					<artifactId>javax.servlet-api</artifactId>
+					<version>3.1.0</version>
+					<scope>provided</scope>
+				</dependency>
+			</dependencies>
+		</profile>
+	</profiles>
 </project>
