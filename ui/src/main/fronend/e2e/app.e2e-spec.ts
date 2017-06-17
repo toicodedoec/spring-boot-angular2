@@ -1,0 +1,16 @@
+import { HackathonPage } from './app.po';
+
+describe('hackathon App', () => {
+  let page: HackathonPage;
+
+  beforeEach(() => {
+    page = new HackathonPage();
+  });
+
+  it('should display welcome message', done => {
+    page.navigateTo();
+    page.getParagraphText()
+      .then(msg => expect(msg).toEqual('Welcome to app!!'))
+      .then(done, done.fail);
+  });
+});
