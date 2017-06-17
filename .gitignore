@@ -17,6 +17,7 @@ dist/
 node_modules/
 typings/
 *.log
+node/
 
 # back-end
 target/
