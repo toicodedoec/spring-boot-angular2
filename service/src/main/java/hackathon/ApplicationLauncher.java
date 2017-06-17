@@ -7,7 +7,6 @@ import org.springframework.boot.web.support.SpringBootServletInitializer;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.session.web.http.HeaderHttpSessionStrategy;
 
 @Configuration
@@ -20,9 +19,9 @@ public class ApplicationLauncher extends SpringBootServletInitializer {
         return new HeaderHttpSessionStrategy();
     }
 
-    protected void configure(HttpSecurity http) throws Exception {
-        http.cors().and().authorizeRequests().anyRequest().permitAll();
-    }
+//    protected void configure(HttpSecurity http) throws Exception {
+//        http.cors().and().authorizeRequests().anyRequest().permitAll();
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(applicationClass, args);
