@@ -28,7 +28,7 @@ public class DummyRestService {
     private EntityManager em;
 
     @RequestMapping("/home")
-    @CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = { "x-auth-token", "x-requested-with" })
+    //@CrossOrigin(origins = "*", maxAge = 3600, allowedHeaders = { "x-auth-token", "x-requested-with" })
     public List<Map<String, Object>> home() {
         List<Map<String, Object>> lst = new ArrayList<Map<String, Object>>();
         Map<String, Object> model = new HashMap<String, Object>();
