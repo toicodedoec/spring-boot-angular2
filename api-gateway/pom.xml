@@ -2,10 +2,11 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
+    <packaging>jar</packaging>
 
 	<artifactId>api-gateway</artifactId>
 	<name>api-gateway</name>
-	<description>The hackathon API gateway service</description>
+	<description>The hackathon API gateway to reach the microservices</description>
 
 	<parent>
         <groupId>hackathon</groupId>
@@ -13,7 +14,12 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 	
-	<dependencies></dependencies>
+	<dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zuul</artifactId>
+        </dependency>
+    </dependencies>
 
     <build>
 		<plugins>

@@ -1,0 +1,16 @@
+server:
+    port: 7070
+
+ribbon:
+  eureka:
+    enabled: false
+
+zuul:  
+  routes:
+    ui:
+      path: /ui/**
+      url: http://localhost:9090
+      
+    service: 
+      path: /api/service/**
+      url: http://localhost:6060
