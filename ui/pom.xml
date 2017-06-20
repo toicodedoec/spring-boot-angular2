@@ -62,6 +62,12 @@
 				<directory>target/frontend</directory>
 				<targetPath>static</targetPath>
 			</resource>
+            <resource>
+				<directory>resources</directory>
+				<includes>
+                    <include>**/*.yaml</include>
+                </includes>
+			</resource>
 		</resources>
 	</build>
 
