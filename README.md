@@ -1,10 +1,5 @@
 # spring-boot-angular2
-Example of integrating spring-boot (as backend) with angular2 (as frontend).
-
-**_TODO_**
-
-1. Plug spring security
-2. Plug db library: done
+Example of spring microservices.
 
 # Technical stack
 
@@ -13,24 +8,29 @@ Example of integrating spring-boot (as backend) with angular2 (as frontend).
 3. hibernate (as JPA implementation)
 4. mysql
 5. using ng2-completer (https://github.com/oferh/ng2-completer) for auto-complete-box
-6. create profiles in pom to package the service as war to deploy in standalone Tomcat server or as jar to run in embedded server
+7. spring-cloud (Zuul)
+8. angular-cli
 
 # Structure
 
-1. service: spring-boot project for back-end REST services
-2. gui: angular2 project (typescript style) for front-end
-3. ui: spring-boot project contains the angular2 libraries (javascript style) for front-end 
+1. service: REST services
+2. ui: spring-boot project contains the angular2 project (angular-cli)
+3. api-gateway: gateway for services
 
 # Deploy
 
 **Deploy backend**
 ```
+cd api-gateway
+mvn clean install spring-boot:run
+```
+```
 cd service
-mvn clean install spring-boot:run -Dserver.port=9000 -DskipTests
+mvn clean install spring-boot:run
 ```
 _Test calling backend method_
 ```
-curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" localhost:9000/home
+curl -v -H "Accept: application/json" -H "X-Requested-With: XMLHttpRequest" localhost:6060/home
 ```
 
 _To deploy in a standalone Tomcat server_
@@ -55,12 +55,6 @@ mvn package -P release -DskipTests
 ```
 **Deploy frontend**
 
-_gui_
-```
-cd gui
-npm install
-npm start
-```
 _ui_
 ```
 cd ui
