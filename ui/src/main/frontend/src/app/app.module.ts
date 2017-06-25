@@ -1,3 +1,5 @@
+import { HttpModule } from '@angular/http';
+import { DummyService } from './service/dummy.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,9 +10,11 @@ import { AppComponent } from './app.component';
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, HttpModule
   ],
-  providers: [],
+  providers: [
+    DummyService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

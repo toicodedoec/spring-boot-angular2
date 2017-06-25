@@ -1,0 +1,1 @@
+export var DUMMY_API_ENDPOINT: string = 'http://localhost:7070/api/service/home';

@@ -1,3 +1,4 @@
+import { DummyService } from './service/dummy.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  serviceResult: number = 0;
+
+  constructor(
+    private dummyService: DummyService
+  ) { }
+
+  callService() {
+    this.dummyService.callToExternalService().subscribe((res: Object[]) =>
+      this.serviceResult = res.length
+    );
+  }
 }
