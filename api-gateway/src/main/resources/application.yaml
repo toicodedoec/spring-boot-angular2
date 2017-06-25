@@ -10,7 +10,6 @@ zuul:
     ui:
       path: /ui/**
       url: http://localhost:9090
-      
     service: 
       path: /api/service/**
       url: http://localhost:6060

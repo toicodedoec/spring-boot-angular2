@@ -1,10 +1,2 @@
 server:
     port: 9090
-    context-path: /ui
----
-spring:
-    profile: dog
-
-server:
-    port: 9090
-    context-path: /ui

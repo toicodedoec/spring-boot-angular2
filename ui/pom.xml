@@ -59,12 +59,11 @@
 		
 		<resources>
 			<resource>
-				<!--<directory>target/frontend</directory>-->
 				<directory>src/main/frontend/dist</directory>
 				<targetPath>static</targetPath>
 			</resource>
             <resource>
-				<directory>resources</directory>
+				<directory>src/main/resources</directory>
 				<includes>
                     <include>**/*.yaml</include>
                 </includes>
